@@ -1,9 +1,9 @@
 // import "./App.css";
-import { UserProvider, useUSer } from "./UserContext";
+import { UserProvider, useUser } from "./UserContext";
 
 
 const LoggedInUser = () => {
-  const { user } = useUSer();
+  const { user } = useUser();
   return (
     <p>
       Hello <span className="UserName">{user.name}</span>
@@ -20,7 +20,7 @@ const Header = () => {
   );
 };
 const Page = () => {
-  const { user } = useUSer();
+  const { user } = useUser();
   return (
     <div>
       <h2>What is Lorem ipsum?</h2>
@@ -36,19 +36,19 @@ const Page = () => {
 
 function App() {
   return (
-    <UserProvider>
+
       <div className="App">
         <Header />
         <Page />
       </div>
-      </UserProvider>
+
   );
 }
-// function Root() {
-//   return(
-//     <UserProvider>
-//       <App/>
-//     </UserProvider>
-//   )
-// }
-export default App;
+function Root() {
+  return(
+    <UserProvider>
+      <App/>
+    </UserProvider>
+  )
+}
+export default Root;
